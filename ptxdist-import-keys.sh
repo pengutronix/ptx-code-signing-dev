@@ -13,7 +13,7 @@ import_fit_keys() {
 
 import_rauc_keys() {
 	local rauc_cert_dir=rauc
-	local r="image-kernel-fit"
+	local r="update"
 	cs_define_role "${r}"
 	cs_import_cert_from_pem "${r}" "${rauc_cert_dir}/rauc.cert.pem"
 	cs_import_pubkey_from_pem "${r}" "${rauc_cert_dir}/rauc.key.pem"

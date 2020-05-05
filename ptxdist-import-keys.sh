@@ -29,18 +29,18 @@ import_imx_habv4_keys() {
 	for i in 1 2 3 4; do
 		r="imx-habv4-srk${i}"
 		cs_define_role "${r}"
-		cs_import_cert_from_der ${r} ${crts}/SRK${i}_sha256_4096_65537_v3_ca_crt.der
-		cs_import_key_from_pem ${r} ${keys}/SRK${i}_sha256_4096_65537_v3_ca_key.pem
+		cs_import_cert_from_der "${r}" "${crts}/SRK${i}_sha256_4096_65537_v3_ca_crt.der"
+		cs_import_key_from_pem "${r}" "${keys}/SRK${i}_sha256_4096_65537_v3_ca_key.pem"
 
 		r="imx-habv4-csf${i}"
-		cs_define_role ${r}
-		cs_import_cert_from_der ${r} ${crts}/CSF${i}_1_sha256_4096_65537_v3_usr_crt.der
-		cs_import_key_from_pem ${r} ${keys}/CSF${i}_1_sha256_4096_65537_v3_usr_key.pem
+		cs_define_role "${r}"
+		cs_import_cert_from_der "${r}" "${crts}/CSF${i}_1_sha256_4096_65537_v3_usr_crt.der"
+		cs_import_key_from_pem "${r}" "${keys}/CSF${i}_1_sha256_4096_65537_v3_usr_key.pem"
 
 		r="imx-habv4-img${i}"
-		cs_define_role ${r}
-		cs_import_cert_from_der ${r} ${crts}/IMG${i}_1_sha256_4096_65537_v3_usr_crt.der
-		cs_import_key_from_pem ${r} ${keys}/IMG${i}_1_sha256_4096_65537_v3_usr_key.pem
+		cs_define_role "${r}"
+		cs_import_cert_from_der "${r}" "${crts}/IMG${i}_1_sha256_4096_65537_v3_usr_crt.der"
+		cs_import_key_from_pem "${r}" "${keys}/IMG${i}_1_sha256_4096_65537_v3_usr_key.pem"
 	done
 }
 

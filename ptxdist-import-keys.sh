@@ -18,6 +18,7 @@ import_rauc_keys() {
 	cs_import_cert_from_pem "${r}" "${rauc_cert_dir}/rauc.cert.pem"
 	cs_import_pubkey_from_pem "${r}" "${rauc_cert_dir}/rauc.key.pem"
 	cs_import_privkey_from_pem "${r}" "${rauc_cert_dir}/rauc.key.pem"
+	cs_append_ca_from_uri "${r}"
 }
 
 import_imx_habv4_keys() {
@@ -31,6 +32,7 @@ import_imx_habv4_keys() {
 		cs_define_role "${r}"
 		cs_import_cert_from_der "${r}" "${crts}/SRK${i}_sha256_4096_65537_v3_ca_crt.der"
 		cs_import_key_from_pem "${r}" "${keys}/SRK${i}_sha256_4096_65537_v3_ca_key.pem"
+		cs_append_ca_from_uri "${r}"
 
 		r="imx-habv4-csf${i}"
 		cs_define_role "${r}"

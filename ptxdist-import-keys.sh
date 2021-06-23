@@ -26,6 +26,7 @@ import_imx_habv4_keys() {
 	local crts="${imx_habv4_key_dir}/crts"
 	local keys="${imx_habv4_key_dir}/keys"
 	local OPENSSL_KEYPASS="${imx_habv4_key_dir}/keys/key_pass.txt"
+	local r
 
 	for i in 1 2 3 4; do
 		r="imx-habv4-srk${i}"

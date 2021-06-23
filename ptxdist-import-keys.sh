@@ -26,7 +26,7 @@ import_imx_habv4_keys() {
 	local crts="${imx_habv4_key_dir}/crts"
 	local keys="${imx_habv4_key_dir}/keys"
 	local OPENSSL_KEYPASS="${imx_habv4_key_dir}/keys/key_pass.txt"
-	local r
+	local r g
 
 	for i in 1 2 3 4; do
 		r="imx-habv4-srk${i}"
@@ -45,6 +45,26 @@ import_imx_habv4_keys() {
 		cs_import_cert_from_der "${r}" "${crts}/IMG${i}_1_sha256_4096_65537_v3_usr_crt.der"
 		cs_import_key_from_pem "${r}" "${keys}/IMG${i}_1_sha256_4096_65537_v3_usr_key.pem"
 	done
+
+	if [ $(type -t cs_group_add_roles) = "function" ]; then
+		g="imx-habv4-srk"
+		cs_define_group "${g}"
+		for i in 1 2 3 4; do
+			cs_group_add_roles "${g}" "imx-habv4-srk${i}"
+		done
+
+		g="imx-habv4-csf"
+		cs_define_group "${g}"
+		for i in 1 2 3 4; do
+			cs_group_add_roles "${g}" "imx-habv4-csf${i}"
+		done
+
+		g="imx-habv4-img"
+		cs_define_group "${g}"
+		for i in 1 2 3 4; do
+			cs_group_add_roles "${g}" "imx-habv4-img${i}"
+		done
+	fi
 }
 
 cs_init_softhsm

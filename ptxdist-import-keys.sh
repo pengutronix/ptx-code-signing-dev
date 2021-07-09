@@ -46,7 +46,7 @@ import_imx_habv4_keys() {
 		cs_import_key_from_pem "${r}" "${keys}/IMG${i}_1_sha256_4096_65537_v3_usr_key.pem"
 	done
 
-	if [ $(type -t cs_group_add_roles) = "function" ]; then
+	if [ "$(type -t cs_group_add_roles)" = "function" ]; then
 		g="imx-habv4-srk"
 		cs_define_group "${g}"
 		for i in 1 2 3 4; do

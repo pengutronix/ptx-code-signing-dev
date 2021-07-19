@@ -11,6 +11,14 @@ import_fit_keys() {
 	cs_import_privkey_from_pem "${r}" "${fit_cert_dir}/fit-4096-development.key"
 }
 
+import_kernel_keys() {
+	local kernel_key_dir=kernel
+	local r="kernel-modules"
+	cs_define_role "${r}"
+	cs_import_cert_from_der "${r}" "${kernel_key_dir}/kernel-development.crt"
+	cs_import_key_from_pem "${r}" "${kernel_key_dir}/kernel-development.key"
+}
+
 import_rauc_keys() {
 	local rauc_cert_dir=rauc
 	local r="update"
@@ -70,4 +78,5 @@ import_imx_habv4_keys() {
 cs_init_softhsm
 import_fit_keys
 import_rauc_keys
+import_kernel_keys
 import_imx_habv4_keys

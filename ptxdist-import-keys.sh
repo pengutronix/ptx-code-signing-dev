@@ -75,8 +75,35 @@ import_imx_habv4_keys() {
 	fi
 }
 
+import_uefi_secure_boot_keys() {
+	local sb_cert_dir="uefi-secure-boot"
+	local r
+
+	r="uefi-secure-boot-pk"
+	cs_define_role "${r}"
+	cs_import_cert_from_pem "${r}" "${sb_cert_dir}/PK.cert.pem"
+	cs_import_pubkey_from_pem "${r}" "${sb_cert_dir}/PK.key.pem"
+	cs_import_privkey_from_pem "${r}" "${sb_cert_dir}/PK.key.pem"
+	cs_append_ca_from_uri "${r}"
+
+	r="uefi-secure-boot-kek"
+	cs_define_role "${r}"
+	cs_import_cert_from_pem "${r}" "${sb_cert_dir}/KEK.cert.pem"
+	cs_import_pubkey_from_pem "${r}" "${sb_cert_dir}/KEK.key.pem"
+	cs_import_privkey_from_pem "${r}" "${sb_cert_dir}/KEK.key.pem"
+	cs_append_ca_from_uri "${r}"
+
+	r="uefi-secure-boot-db"
+	cs_define_role "${r}"
+	cs_import_cert_from_pem "${r}" "${sb_cert_dir}/db.cert.pem"
+	cs_import_pubkey_from_pem "${r}" "${sb_cert_dir}/db.key.pem"
+	cs_import_privkey_from_pem "${r}" "${sb_cert_dir}/db.key.pem"
+	cs_append_ca_from_uri "${r}"
+}
+
 cs_init_softhsm
 import_fit_keys
 import_rauc_keys
 import_kernel_keys
 import_imx_habv4_keys
+import_uefi_secure_boot_keys

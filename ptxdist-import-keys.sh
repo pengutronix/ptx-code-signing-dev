@@ -101,9 +101,19 @@ import_uefi_secure_boot_keys() {
 	cs_append_ca_from_uri "${r}"
 }
 
+import_rk_secure_boot_keys() {
+	local rk_cert_dir=rk-secure-boot
+	local r="rk-secure-boot"
+
+	cs_define_role "${r}"
+	cs_import_pubkey_from_pem "${r}" "${rk_cert_dir}/rk-development.key.pem"
+	cs_import_privkey_from_pem "${r}" "${rk_cert_dir}/rk-development.key.pem"
+}
+
 cs_init_softhsm
 import_fit_keys
 import_rauc_keys
 import_kernel_keys
 import_imx_habv4_keys
 import_uefi_secure_boot_keys
+import_rk_secure_boot_keys

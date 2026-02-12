@@ -39,6 +39,11 @@ Using slot 0 with a present token (0x0)
 
 Import Wrapped Keys
 -------------------
+
+Note: If importing the keys fails with OpenSC version up to 0.26.1, use `export
+OPENSC_CONF=opensc.conf` to limit the APDU size. For details, see this GitHub
+issue: https://github.com/OpenSC/OpenSC/issues/3567
+
 $ ls
  dkek-share-dev-1.check-value  'ptx-dev-CSF1_1(5).wky'  'ptx-dev-SRK2(2).wky'  'ptx-dev-fit(7).wky'
  dkek-share-dev-1.password     'ptx-dev-IMG1_1(6).wky'  'ptx-dev-SRK3(3).wky'  'ptx-dev-rauc(8).wky'

@@ -30,7 +30,7 @@ import_rauc_keys() {
 }
 
 import_imx_habv4_keys() {
-	local imx_habv4_key_dir="habv4"
+	local imx_habv4_key_dir="habv4/rsa4096-srk-ca"
 	local crts="${imx_habv4_key_dir}/crts"
 	local keys="${imx_habv4_key_dir}/keys"
 	local OPENSSL_KEYPASS="${imx_habv4_key_dir}/keys/key_pass.txt"

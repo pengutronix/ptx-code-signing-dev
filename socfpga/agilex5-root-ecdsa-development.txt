@@ -1,0 +1,23 @@
+#################################################
+#
+# This is QKY Single Root Key
+#
+# QKY input: agilex5-root-ecdsa-development.qky
+#
+#     Format (data is in hexadecimal character):
+#
+#        <Word #0> <Word #1> <Word #2> <Word #3> <Word #3> ... <Word #n-2> <Word #n-1>
+#
+#        Each word is 32bits or 4Bytes with following order
+#
+#           word = <Byte #3><Byte #2><Byte #1><Byte #0>
+#
+#           Example word = 12345678
+#                   Byte #0 is 0x78
+#                   Byte #1 is 0x56
+#                   Byte #2 is 0x34
+#                   Byte #3 is 0x12
+#
+#################################################
+
+Fuse: D39E37D2 55EE77E5 B61E478A 73FBB123 497546B1 43E4EEF3 10EFA12F AD016666 E94CDB99 C1F8F9ED C01D2B96 4FFF8880

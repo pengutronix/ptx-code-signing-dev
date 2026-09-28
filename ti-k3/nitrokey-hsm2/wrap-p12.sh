@@ -1,0 +1,1 @@
+../../nitrokey-hsm2/import-helper/wrap-p12.sh
